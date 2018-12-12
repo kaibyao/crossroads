@@ -1,7 +1,7 @@
 #![allow(proc_macro_derive_resolution_fallback)]
 
 use chrono::{DateTime, Utc};
-use schema::xr_user;
+use crate::schema::xr_user;
 use uuid::Uuid;
 
 #[derive(Queryable, Insertable)]

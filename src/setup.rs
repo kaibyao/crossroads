@@ -1,4 +1,4 @@
-use db::{create_postgres_url, drop_database, establish_connection, DatabaseConfig};
+use crate::db::{create_postgres_url, drop_database, establish_connection, DatabaseConfig};
 
 use diesel::prelude::*;
 use std::process::Command;
@@ -40,8 +40,8 @@ pub fn generate_tables(db_config: &DatabaseConfig, gen_config: &SetupConfig) {
 // get admin details from gen_config and insert admin user into xr_user table
 fn insert_admin_user(conn: diesel::PgConnection, gen_config: &SetupConfig) -> usize {
     use diesel::insert_into;
-    use models::XrUser;
-    use schema::xr_user::dsl::*;
+    use crate::models::XrUser;
+    use crate::schema::xr_user::dsl::*;
 
     // get id of user "system"
     let setup_user_query = xr_user
